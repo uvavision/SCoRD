@@ -1,0 +1,27 @@
+train_file: ['../data_preparation/processed_data/after_cocoCC5252_set2_remove0.50.json']
+
+test_file: ['oidv6_val_test.json']
+
+proposal_box_root: ''
+vqa_root: '' #already save in json file
+vg_root: ''  #already save in json file
+
+image_res: 384
+position_res: 512
+batch_size_train: 32 
+batch_size_test: 16 
+k_test: 128
+
+alpha: 0.4
+distill: True
+warm_up: True
+
+sample_gt_box_prob: 1.0
+num_proposals: 20
+
+eos: '[SEP]'
+
+bert_config: 'configs/config_bert.json'
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-5, epochs: 20, min_lr: 5e-6, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 5, cooldown_epochs: 0}
