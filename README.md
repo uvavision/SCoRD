@@ -1,5 +1,7 @@
 # [SCoRD: Subject-Conditional Relation Detection With Text-Augmented Data](https://openaccess.thecvf.com/content/WACV2024/html/Yang_SCoRD_Subject-Conditional_Relation_Detection_With_Text-Augmented_Data_WACV_2024_paper.html)
 Ziyan Yang, Kushal Kafle, Zhe Lin, Scott Cohen, Zhihong Ding, Vicente Ordonez
+
+
 If you have any questions, you can email zy3cx@virginia.edu
 
 ## Abstract
