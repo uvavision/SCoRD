@@ -10,7 +10,10 @@ Please follow [ALBEF](https://github.com/salesforce/ALBEF) to install the requir
 
 ## Data
 Download the training and testing splits [here](https://drive.google.com/drive/folders/19Bk1mhaXvW8bAeMgmHvg7X3ZTAmZOwd0?usp=sharing). 
-More details about downloading images are coming soon.
+To download images:
+- Download [Visual Genome](https://homes.cs.washington.edu/~ranjay/visualgenome/api.html), [MS COCO](https://cocodataset.org/#download), [Flickr30k](https://bryanplummer.com/Flickr30kEntities/) and [OpenImageV6](https://storage.googleapis.com/openimages/web/download.html) images from the corresponding websites
+- Download [CC3M](https://ai.google.com/research/ConceptualCaptions/) using this [codebase](https://github.com/igorbrigadir/DownloadConceptualCaptions)
+- Download [CC12M](https://github.com/google-research-datasets/conceptual-12m) using this [codebase](https://github.com/rom1504/img2dataset?tab=readme-ov-file)
 
 ## Checkpoint
 Download the checkpoint for the removing 50% experiment [here](https://drive.google.com/drive/folders/1vuH6NiGLO-MYlgEdYPEkYEsbTt0iw4xA?usp=sharing).
@@ -28,8 +31,11 @@ Then, run this command to get evaluation results:
 python evaluate_results.py --results_folder your_checkpoint_folder/oidv6_results/  --report_unseen True --topk 3
 ```
 ## Training
-
-Coming soon.
+First, download the pre-trained checkpoint from [PEVL](https://thunlp.oss-cn-qingdao.aliyuncs.com/pevl_pretrain.pth):
+Run:
+```bash
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --nproc_per_node=8 --master_port=12888 --use_env run_relation_train.py --config configs/relation_grounding.yaml --output_dir your_checkpoint_folder --checkpoint pevl_pretrain.pth
+```
 
 ## Acknowledgement
 
